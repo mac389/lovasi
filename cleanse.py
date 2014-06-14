@@ -27,8 +27,7 @@ text = open(opts.source,'rb').read().splitlines()
 
 bar = Bar('Cleansing %s'%opts.source,max=len(text))
 for i,item in enumerate(text):
-	text[i] = [word for word in Tokenizer.tokenizeRawTweetText(item) if word not in custom_stopwords]
-	# [ ] Use better tokenizer WE ALREADY HAVE A BETTER TOKENIZER
+	text[i] = [word for word in Tokenizer.tokenizeRawTweetText(item) if word not in custom_stopwords and not word.isdigit()]
 	bar.next()
 bar.finish()
 

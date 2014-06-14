@@ -3,5 +3,11 @@
 [X] Remove more stopwords
 		6/12/14 : Used NLTK's list and Tox Tweet's list. Marginal improvements: Increased separation on ICA components 1 and 2; 
 		same for 1st and 2nd prinicpal components
-[ ] Use gensim's implementation of LDA
+[X] Use gensim's implementation of LDA
 [X] Save abastracts so cleanse.py can use
+
+6/14/14
+[X] Remove numerals (changed line 30 in cleanse.py)
+[] Use n-grams (used option in tfidf vectorizer for LSA, what about gensim?)
+[ ] Tell Gina, Ryan, Jimi about GitHub
+[ ] Make file hierarchy portable
