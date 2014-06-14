@@ -1,0 +1,1 @@
+http://www.ncbi.nlm.nih.gov/pubmed?holding=&otool=&tool=&term=(new%20york%20city)+AND+(health+services+administration[mh]+OR+epidemiologic+studies[mh]+OR+epidemiology[sh])
