@@ -11,3 +11,4 @@
 [] Use n-grams (used option in tfidf vectorizer for LSA, what about gensim?)
 [ ] Tell Gina, Ryan, Jimi about GitHub
 [ ] Make file hierarchy portable
+[ ] PCA on LDA
