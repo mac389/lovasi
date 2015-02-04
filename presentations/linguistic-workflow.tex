@@ -1,0 +1,70 @@
+\documentclass{standalone}
+
+\usepackage{fontspec,marvosym,tikz, blkarray,amsmath,multirow}
+\usepackage{rotating}
+\setmainfont{Arial}
+\usetikzlibrary{shapes,arrows,calc}
+\begin{document}
+\pagestyle{empty}
+
+
+% Define block styles
+\tikzstyle{block} = [draw=none, diamond, inner sep=0pt]
+\tikzstyle{line} = [draw, -latex']
+    
+\begin{tikzpicture}[node distance = 3cm, auto]
+    % Place nodes
+   \node[block] (raw-data) {Raw data};
+
+  \node[block,right of=raw-data,right=0cm] (preprocessed-data) 
+	{
+		\begin{minipage}{0.4\textwidth}
+			\[
+				\begin{array}{ccccc}
+				 & \multicolumn{4}{c}{\textrm{words }\rightarrow} \\
+				 \multirow{5}{*}{\begin{turn}{-90}\textrm{articles} $\rightarrow$\end{turn}}  & 1 & 1 & 1 & 1 \\
+				   & 1 & 0 & 0 & 1  \\
+				  & 0 & 1 & 0 & 1  \\
+				   & 0 & 0 & 1 & 1  \\
+				  & 0 & 0 & 0 & 1  \\
+
+				\end{array}
+			 \]
+		\end{minipage}
+	
+	};
+  
+  \node[block, below of=preprocessed-data] (non-orthogonal) 
+	{
+		\begin{minipage}{0.4\textwidth}
+						
+			\begin{tikzpicture}[
+				    dot/.style={
+				        circle,
+				        inner sep=2pt,
+				        fill,
+				        label={#1},
+				        name=#1,
+				        color=black
+				    },
+				    scale=2]
+				\begin{scope}
+				  \node [dot=A] at (0,0) {};
+				  \node [dot=B] at (1,.4) {};
+				  \node [dot=P] at (.2,.8) {};
+				  \draw [->] (A) --node[below] {Topic 1} (B) ;
+				  \draw [->] (A) --node[left] {Topic 2} (P);
+				\end{scope}
+				\end{tikzpicture}
+		\end{minipage}
+	};
+
+ \node[block, left of=non-orthogonal] (orthogonal) {Orthogonal};
+
+  \path[line] (raw-data.east) -- (preprocessed-data.west);
+ \path[line] (preprocessed-data) -- (non-orthogonal);
+ \path[line] (non-orthogonal) -- (orthogonal); 
+\end{tikzpicture}
+
+
+\end{document}
